@@ -66,17 +66,17 @@
           list = list.filter((ele) => ele !== e.nextSibling.textContent)
           document.querySelector('.error').textContent = ' '
         }
-        console.log(list.length+':'+list);
       });
     })
     
     chkButton.addEventListener('click',function(){
+      chkList.innerHTML = '';
       for(let i=0; i<list.length; i++) {
         let li = document.createElement("li");
         li.textContent = list[i]
         chkList.append(li);
-        closeModal('.modal');
       }
+      closeModal('.modal');
     })
 
   </script>
