@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="box">
+    <h1>뿌리시오</h1>
+    <div>
+      <ul class="chk-list">
+        
+      </ul>
+      <button class="btn pop-btn" onclick="openModal('.modal')">팝업버튼</button>
+    </div>
+
+    <div class="modal">
+      <div class="chk-wrap">
+        <div class="input-wrap"><input type="checkbox" id="chk01"><label for="chk01">웹툰</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk02"><label for="chk02">패션뷰티</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk03"><label for="chk03">레시피</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk04"><label for="chk04">리빙</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk05"><label for="chk05">책방</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk06"><label for="chk06">경제M</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk07"><label for="chk07">자동차</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk08"><label for="chk08">엔터</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk09"><label for="chk09">스포츠</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk10"><label for="chk10">뉴스</label></div>
+        <div class="input-wrap"><input type="checkbox" id="chk11"><label for="chk11">사전</label></div>
+      </div>
+      <p class="error"></p>
+      <div class="btns-wrap">
+        <button class="btn btn-primary">확인</button>
+        <button class="btn btn-secondary" onclick="closeModal('.modal')">취소</button>
+      </div>
+      <button class="btn-close" onclick="closeModal('.modal')"><i>닫기</i></button>
+    </div>
+    <div class="dim"></div>
+  </div>
+  <script>
+    function closeModal(target) {
+      document.querySelector(target).classList.remove('is-visible');
+    }
+    function openModal(target) {
+      document.querySelector(target).classList.add('is-visible');
+    }
+
+    const chk = document.querySelectorAll('.input-wrap input[type=checkbox]');
+    const chkButton = document.querySelector('.modal .btn-primary')
+    const chkList = document.querySelector('.chk-list')
+    
+    let list = []
+    chk.forEach(function(e,i){
+      e.addEventListener('change',function(){
+        if(e.checked) {
+          if(list.length < 6) {
+            list.push(e.nextSibling.textContent)
+          }else {
+            e.checked = false
+            document.querySelector('.error').textContent = '6개 이하 선택하시오'
+          }
+        }else {
+          list = list.filter((ele) => ele !== e.nextSibling.textContent)
+          document.querySelector('.error').textContent = ' '
+        }
+        console.log(list.length+':'+list);
+      });
+    })
+    
+    chkButton.addEventListener('click',function(){
+      for(let i=0; i<list.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = list[i]
+        chkList.append(li);
+        closeModal('.modal');
+      }
+    })
+
+  </script>
+</body>
+</html>
+
+
+
+        
+
+
+
+
+
+
+
+
+

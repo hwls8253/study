@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  cursor: default;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+html, body {
+  height: 100%;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  width: 100%;
+}
+body .box {
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+body .box h1 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+body .modal {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  padding: 50px;
+  background-color: #fff;
+  z-index: 2;
+}
+body .modal.is-visible {
+  display: flex;
+}
+body .modal.is-visible + .dim {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+body .modal .btn-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+body .modal .btn-close i {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+body .modal .btn-close::after, body .modal .btn-close::before {
+  content: " ";
+  position: absolute;
+  left: -15px;
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+body .modal .btn-close::before {
+  transform: rotate(45deg);
+}
+body .modal .btn-close::after {
+  transform: rotate(-45deg);
+}
+body .chk-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+body .chk-wrap .input-wrap {
+  padding: 10px;
+}
+body .chk-wrap .input-wrap input {
+  margin-right: 5px;
+}
+
+.btn {
+  background-color: #aaa;
+  color: #fff;
+  padding: 8px 15px;
+  font-weight: 700;
+}
+.btn.btn-primary {
+  background-color: #111;
+}
+
+.btns-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btns-wrap .btn {
+  width: 50%;
+  display: block;
+}
+.btns-wrap .btn + .btn {
+  margin-left: 10px;
+}
+
+p.error {
+  color: red;
+  margin: 20px 0 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.chk-list, .chk-list li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chk-list {
+  padding: 30px 30px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chk-list li {
+  background: #eee;
+  margin: 0 10px;
+  padding: 5px 14px;
+}
+
+.pop-btn {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
